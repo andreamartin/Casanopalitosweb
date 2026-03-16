@@ -3,27 +3,32 @@ import { motion } from 'motion/react';
 
 const images = [
   {
-    url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    url: '/assets/images/gallery-1.jpg',
+    fallback: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
     title: 'Living Area',
     size: 'large'
   },
   {
-    url: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=800&q=80',
+    url: '/assets/images/gallery-2.jpg',
+    fallback: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=800&q=80',
     title: 'Ocean View Bedroom',
     size: 'small'
   },
   {
-    url: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+    url: '/assets/images/gallery-3.jpg',
+    fallback: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
     title: 'Modern Kitchen',
     size: 'small'
   },
   {
-    url: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
+    url: '/assets/images/gallery-4.jpg',
+    fallback: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80',
     title: 'Oceanfront Terrace',
     size: 'medium'
   },
   {
-    url: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80',
+    url: '/assets/images/gallery-5.jpg',
+    fallback: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80',
     title: 'Master Suite',
     size: 'medium'
   }
@@ -53,6 +58,9 @@ export default function Gallery() {
             >
               <img
                 src={img.url}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = img.fallback;
+                }}
                 alt={img.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"

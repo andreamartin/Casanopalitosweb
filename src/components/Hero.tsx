@@ -8,7 +8,10 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80"
+          src="/assets/images/hero.jpg"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80";
+          }}
           alt="Casa Nopalitos Exterior"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
